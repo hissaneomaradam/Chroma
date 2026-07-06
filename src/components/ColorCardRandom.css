@@ -1,0 +1,151 @@
+.color-card-random-page {
+  min-height: 100dvh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.color-card-random-shell {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 520px);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.color-card-random__header {
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.color-card-random__kicker {
+  margin: 0;
+  font: 600 0.85rem/1.2 "Space Grotesk", "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 250, 254, 0.65);
+}
+
+.color-card-random__title {
+  margin: 0;
+  font: 800 clamp(2rem, 5vw, 3.8rem)/1.05 "Sora", "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.01em;
+  color: #f3f6fa;
+  text-wrap: balance;
+}
+
+.color-card-random {
+  position: relative;
+  width: min(88vw, 340px);
+  height: min(62vh, 520px);
+  min-height: 360px;
+  border-radius: 28px;
+  padding: 18px;
+  overflow: hidden;
+  background: rgba(10, 16, 32, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  display: grid;
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+}
+
+.color-card-random::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 18% 10%, rgba(225, 0, 255, 0.22), transparent 34%);
+  opacity: 0.9;
+}
+
+.color-card-random__counter {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font: 700 1rem/1 "Space Grotesk", "Segoe UI", Roboto, Arial, sans-serif;
+  color: #eef6ff;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 10px 28px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+.color-card-random__swatch {
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
+  min-height: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -24px 48px rgba(0, 0, 0, 0.16);
+}
+
+.color-card-random__meta {
+  text-align: left;
+  color: #f8fbff;
+}
+
+.color-card-random__label {
+  margin: 0 0 4px;
+  font: 500 0.86rem/1.2 "Manrope", "Segoe UI", Roboto, Arial, sans-serif;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.color-card-random__value {
+  margin: 0;
+  font: 700 1rem/1.2 "Sora", "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.color-card-random__parts {
+  margin-top: 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.color-card-random__parts p {
+  margin: 0;
+  font: 600 0.85rem/1.25 "Manrope", "Segoe UI", Roboto, Arial, sans-serif;
+  color: rgba(248, 251, 255, 0.9);
+}
+
+@media (max-width: 640px) {
+  .color-card-random-shell {
+    gap: 14px;
+  }
+
+  .color-card-random {
+    width: min(88vw, 320px);
+    height: min(58vh, 480px);
+    min-height: 320px;
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .color-card-random__counter {
+    top: 20px;
+    right: 20px;
+  }
+
+  .color-card-random__swatch {
+    border-radius: 18px;
+  }
+}

@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Sora:wght@600;700;800&display=swap');
+
+.pick-page {
+  min-height: 100dvh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: clamp(20px, 4vw, 40px);
+  box-sizing: border-box;
+}
+
+.pick-shell {
+  position: relative;
+  z-index: 1;
+  width: min(96vw, 1000px);
+  display: grid;
+  gap: 18px;
+}
+
+.pick-header {
+  text-align: center;
+  display: grid;
+  gap: 8px;
+}
+
+.pick-kicker {
+  margin: 0;
+  font: 600 0.85rem/1.2 "Space Grotesk", "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 250, 254, 0.65);
+}
+
+.pick-title {
+  margin: 0;
+  font: 800 clamp(2rem, 5vw, 3.8rem)/1.05 "Sora", "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.01em;
+  color: #f3f6fa;
+}
+
+.pick-card {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 1.15fr);
+  min-height: min(70vh, 560px);
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(10, 16, 32, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+}
+
+.pick-card__controls {
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(13, 20, 41, 0.72), rgba(10, 16, 32, 0.64));
+}
+
+.pick-card__sliders {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pick-card__slider-row {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  padding: 14px 10px;
+  border-radius: 18px;
+  background: rgba(47, 111, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 24px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+.pick-card__slider-row input[type="range"] {
+  width: 140px;
+  transform: rotate(90deg);
+  transform-origin: center;
+  accent-color: #ffffff;
+}
+
+.pick-preview {
+  position: relative;
+  min-height: 0;
+}
+
+.pick-preview__buttonWrap {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+}
+
+.pick-preview__button {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 0;
+}
+
+.pick-preview__ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+}
+
+@media (max-width: 760px) {
+  .pick-card {
+    grid-template-columns: 1fr;
+  }
+
+  .pick-card__sliders {
+    grid-template-columns: 1fr;
+  }
+
+  .pick-card__slider-row {
+    min-height: 120px;
+  }
+
+  .pick-preview {
+    min-height: 260px;
+    order: -1;
+  }
+}
