@@ -62,12 +62,13 @@ export default function ColorCardRandom({ color }) {
         </header>
 
         <article className="color-card-random">
-          <span className="color-card-random__counter">{count}</span>
           <div
             className="color-card-random__swatch"
             style={{ backgroundColor: displayColor }}
             aria-label={`Selected color ${displayColor}`}
-          />
+          >
+            <span className="color-card-random__counter">{count}</span>
+          </div>
         </article>
       </section>
     </main>
