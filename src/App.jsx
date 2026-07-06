@@ -4,7 +4,8 @@ import ColorCardRandom from "./components/ColorCardRandom";
 import Pick from "./components/Pick";
 import Results from "./components/Results";
 import Footer from "./components/Footer";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
+
 
 function App() {
   return (
