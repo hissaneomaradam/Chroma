@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ColorCardRandom from "./components/ColorCardRandom";
 import Pick from "./components/Pick";
 import Results from "./components/Results";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/pick" element={<Pick />} />
         <Route path="/results" element={<Results />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

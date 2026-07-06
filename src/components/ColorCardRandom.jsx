@@ -13,7 +13,7 @@ function createRandomColorParts() {
 export default function ColorCardRandom({ color }) {
   const navigate = useNavigate();
   const [parts] = useState(() => createRandomColorParts());
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(5);
 
   useEffect(() => {
     if (count <= 0) {
@@ -61,7 +61,9 @@ export default function ColorCardRandom({ color }) {
           <h1 className="color-card-random__title">Memorize the tone</h1>
         </header>
 
-        <article className="color-card-random">
+        <article
+          className={`color-card-random${count <= 3 ? " color-card-random--urgent" : ""}`}
+        >
           <div
             className="color-card-random__swatch"
             style={{ backgroundColor: displayColor }}

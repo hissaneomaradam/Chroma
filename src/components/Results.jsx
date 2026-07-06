@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SoftAurora from "./SoftAurora";
 import "./Results.css";
@@ -45,11 +45,37 @@ export default function Results() {
     () => calculateScore(targetColor, playerColor),
     [targetColor, playerColor],
   );
+  const [displayScore, setDisplayScore] = useState(0);
 
   useEffect(() => {
     console.log("Target color from ColorCardRandom:", targetColor);
     console.log("Player color from Pick:", playerColor);
   }, [targetColor, playerColor]);
+
+  useEffect(() => {
+    if (finalScore === null) {
+      setDisplayScore(0);
+      return;
+    }
+
+    let animationFrameId;
+    const duration = 900;
+    const startTime = performance.now();
+
+    function update(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplayScore(Math.round(finalScore * eased));
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(update);
+      }
+    }
+
+    animationFrameId = requestAnimationFrame(update);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [finalScore]);
 
   const targetHsl = toHsl(targetColor);
   const playerHsl = toHsl(playerColor);
@@ -77,7 +103,7 @@ export default function Results() {
         <header className="results-header">
           <p className="results-kicker">Results</p>
           <h1 className="results-title">
-            {finalScore === null ? "--" : `${finalScore}%`}
+            {finalScore === null ? "--" : `${displayScore}%`}
           </h1>
           <p className="results-subtitle">{getResultMessage(finalScore)}</p>
           <Link className="results-play-again" to="/play">
