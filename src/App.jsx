@@ -10,8 +10,9 @@ import { Analytics } from "@vercel/analytics/react"
 function App() {
   return (
     <Router>
+      <Analytics />
       <Routes>
-        <Analytics />
+        
         <Route path="/" element={<Home />} />
         <Route path="/play" element={<ColorCardRandom />} />
         <Route path="/pick" element={<Pick />} />
